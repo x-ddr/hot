@@ -156,7 +156,6 @@ def crawler_github():
             href = 'https://github.com/%s' % article.xpath('./h1/a/@href')[0]
             describe = article.xpath('string(./p)').strip()
             content_list.append({'title':'%s---%s' % (title, describe), 'href': href})
-            print({'title':'%s---%s' % (title, describe), 'href': href})
     return {'hot_name': 'GitHub', 'content': content_list}
 
 
