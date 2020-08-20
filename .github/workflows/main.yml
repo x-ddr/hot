@@ -4,8 +4,8 @@ on:
   push:
     branches: 
       - master
-  #schedule:
-   # - cron: '* * * * *'
+  schedule:
+   - cron: '*/30 * * * *'
 jobs:
   result-spider:
     runs-on: ubuntu-latest
