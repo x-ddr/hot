@@ -7,7 +7,7 @@ on:
   #schedule:
    # - cron: '* * * * *'
 jobs:
-  Pic-spider:
+  result-spider:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
