@@ -48,7 +48,7 @@ def crawler_zhi_hu():
             for data in data_list:
                 title = data.get('target').get('title_area').get('text', '')
                 href = data.get('target').get('link').get('url', '')
-                # content_list.append({'title': title, 'href': href})
+                content_list.append({'title': title, 'href': href})
     return {'hot_name': '知乎热榜', 'content': content_list}
 
 
