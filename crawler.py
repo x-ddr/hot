@@ -50,6 +50,7 @@ def crawler_zhi_hu():
                 href = data.get('target').get('link').get('url', '')
                 metrics=data.get('target').get('metrics_area').get('text', '')
                 content_list.append({'title': title+'                --'+metrics, 'href': href})
+                print(title+'-----'+metrics)
     return {'hot_name': '知乎热榜', 'content': content_list}
 
 
