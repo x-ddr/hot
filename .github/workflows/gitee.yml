@@ -13,19 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Cache kunpengcompute src repos
-      uses: actions/cache@v1
-      with:
-        path: /home/runner/work/Kunpeng/Kunpeng/kunpeng-cache
-        key: ${{ runner.os }}-kunpeng-repos-cache
-
     - name: Mirror the Github organization repos to Gitee.
       uses: Yikun/hub-mirror-action@v0.05
       with:
         src: github/x-dr
         dst: gitee/goindex
-        dst_key: ${{ secrets.GITEESSh }}
+        dst_key: ${{ secrets.GITEESSH }}
         dst_token:  ${{ secrets.GITEE }}
-        cache_path: /github/workspace/kunpeng-cache
         white_list: "hot"  
         force_update: true
