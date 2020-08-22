@@ -33,10 +33,9 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.TOKEN }}
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: 'Create a Release'
+        uses: elgohr/Github-Release-Action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
+          args: result
