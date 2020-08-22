@@ -5,7 +5,7 @@ on:
     branches: 
       - master
   schedule:
-   - cron: '0 */1 * * *'
+   - cron: '*/20 * * * *'
 jobs:
   result-spider:
     runs-on: ubuntu-latest
@@ -21,7 +21,7 @@ jobs:
       - name: 'Install requirements'
         run: pip install -r ./requirements.txt
       - name: 'Working'
-        timeout-minutes: 350
+        #timeout-minutes: 350
         run: bash ./main.sh
       - name: Commit files
         run: |
