@@ -1,4 +1,4 @@
-name: 'GitHub Actions to gitee'
+name: 'GitHub Actions result'
 
 on:
   push:
@@ -6,18 +6,26 @@ on:
       - master
   schedule:
    - cron: '*/5 * * * *'
+
 jobs:
-  result-spider:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-     - name: Mirror with force push (git push -f)
-       uses: Yikun/hub-mirror-action@master
-       with:
-         src: github/x-dr
-         dst: gitee/goindex
-         dst_key: ${{ secrets.GITEESSH }}       
-         dst_token: ${{ secrets.GITEE }}
-         force_update: true
-         white_list: "hot"
-      
-          
+    - name: Cache kunpengcompute src repos
+      uses: actions/cache@v1
+      with:
+        path: /home/runner/work/Kunpeng/Kunpeng/kunpeng-cache
+        key: ${{ runner.os }}-kunpeng-repos-cache
+
+    - name: Mirror the Github organization repos to Gitee.
+      uses: Yikun/hub-mirror-action@v0.05
+      with:
+        src: github/x-dr
+        dst: gitee/goindex
+        dst_key: ${{ secrets.GITEESSh }}
+        dst_token:  ${{ secrets.GITEE }}
+        cache_path: /github/workspace/kunpeng-cache
+        white_list: "hot"  
+        force_update: true
