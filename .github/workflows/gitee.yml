@@ -5,7 +5,7 @@ on:
     branches: 
       - master
 jobs:
-  result-spider:
+  gitee:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
