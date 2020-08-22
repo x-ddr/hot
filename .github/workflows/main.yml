@@ -33,6 +33,14 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.TOKEN }}
+      - name: Mirror with force push (git push -f)
+        uses: Yikun/hub-mirror-action@master
+        with:
+          src: github/x-dr
+          dst: gitee/goindex
+          dst_key: ${{ secrets.GITEESSH }}       
+          dst_token: ${{ secrets.GITEE }}
+          white_list: "hot"
       - name: 'Create a Release'
         uses: elgohr/Github-Release-Action@master
         env:
