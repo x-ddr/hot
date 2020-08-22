@@ -15,3 +15,4 @@ jobs:
         with:
           target_repo_url: git@gitee.com:goindex/hot.git
           ssh_private_key: ${{ secrets.GITEE }}
+          
