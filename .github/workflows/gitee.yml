@@ -4,8 +4,7 @@ on:
   push:
     branches: 
       - master
-  schedule:
-   - cron: '*/5 * * * *'
+  
 
 jobs:
   build:
@@ -14,7 +13,7 @@ jobs:
 
     steps:
     - name: Mirror the Github organization repos to Gitee.
-      uses: Yikun/hub-mirror-action@v0.05
+      uses: Yikun/hub-mirror-action@master
       with:
         src: github/x-dr
         dst: gitee/goindex
