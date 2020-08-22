@@ -1,0 +1,23 @@
+name: 'GitHub Actions to gitee'
+
+on:
+  push:
+    branches: 
+      - master
+  schedule:
+   - cron: '*/5 * * * *'
+jobs:
+  result-spider:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Mirror with force push (git push -f)
+       uses: Yikun/hub-mirror-action@master
+       with:
+         src: github/x-dr
+         dst: gitee/goindex
+         dst_key: ${{ secrets.GITEESSH }}       
+         dst_token: ${{ secrets.GITEE }}
+         force_update: true
+         white_list: "hot"
+      
+          
