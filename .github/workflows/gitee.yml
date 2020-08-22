@@ -1,23 +1,17 @@
-name: 'GitHub Actions result'
+name: 'GitHub Actions gitee'
 
 on:
   push:
     branches: 
       - master
-  
-
 jobs:
-  build:
-
+  result-spider:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Mirror the Github organization repos to Gitee.
-      uses: Yikun/hub-mirror-action@master
-      with:
-        src: github/x-dr
-        dst: gitee/goindex
-        dst_key: ${{ secrets.GITEESSH }}
-        dst_token:  ${{ secrets.GITEE }}
-        white_list: "hot"  
-        force_update: true
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: 'Mirror to gitee'
+        uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url: git@gitee.com:goindex/hot.git
+          ssh_private_key: ${{ secrets.GITEE }}
