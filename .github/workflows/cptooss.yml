@@ -20,4 +20,4 @@ jobs:
           ./ossutil64 config -e ${{ secrets.ENDPOINT }} -i ${{ secrets.ACCESSKEYID }} -k ${{ secrets.ACCESSKEYSECRET }}  -L CH
       - name: cptooss
         run: |
-          ./ossutil64 cp -r result oss://gindex -f                    
+          ./ossutil64 cp -r result oss://dayhot/hot -f                    
