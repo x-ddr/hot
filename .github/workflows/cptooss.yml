@@ -2,10 +2,6 @@ name: 'GitHub Actions OSS'
 
 on:
   push:
-    branches: 
-      - maste
-  #schedule:
-   #- cron: '*/5 * * * *'
 jobs:
   oss:
     runs-on: ubuntu-latest
