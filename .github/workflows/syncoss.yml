@@ -1,0 +1,20 @@
+name: Sync Action
+on:
+  push:
+  #schedule:
+    # 每天北京时间0点同步
+    #- cron:  '0 16 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sync oss
+      uses: x-dr/sync-oss@v1
+      with:
+        ACCESSKEYID: ${{ secrets.ACCESSKEYID }}
+        ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
+        ENDPOINT: ${{ secrets.ENDPOINT }}
+    - name: test
+      run: |
+        ./ossutil64 ls
