@@ -18,3 +18,4 @@ jobs:
     - name: test
       run: |
         ossutil64 ls
+        ls -a
