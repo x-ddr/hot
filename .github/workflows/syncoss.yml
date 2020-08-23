@@ -1,4 +1,4 @@
-name: Sync Action
+name: OSS
 on:
   push:
   #schedule:
@@ -6,7 +6,7 @@ on:
     #- cron:  '0 16 * * *'
 
 jobs:
-  build:
+  OSS:
     runs-on: ubuntu-latest
     steps:
     - name: Sync oss
