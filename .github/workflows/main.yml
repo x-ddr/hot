@@ -24,7 +24,6 @@ jobs:
         timeout-minutes: 350
         run: |
           bash ./main.sh
-          mkdir oldhot
           cp result/result.json oldhot/$(date +%Y%m%d%H%M%S).json
       - name: Commit files
         run: |
