@@ -1,13 +1,13 @@
-name: 'GitHub Actions Oss'
+name: 'GitHub Actions OSS'
 
 on:
   push:
     branches: 
-      - master
+      - maste
   #schedule:
    #- cron: '*/5 * * * *'
 jobs:
-  result-spider:
+  oss:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
