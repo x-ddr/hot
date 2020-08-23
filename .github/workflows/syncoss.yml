@@ -17,4 +17,4 @@ jobs:
         ENDPOINT: ${{ secrets.ENDPOINT }}
     - name: test
       run: |
-        ./ossutil64 ls
+        ossutil ls
