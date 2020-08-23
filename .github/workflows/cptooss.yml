@@ -1,0 +1,23 @@
+name: 'GitHub Actions Oss'
+
+on:
+  push:
+    branches: 
+      - master
+  schedule:
+   - cron: '*/5 * * * *'
+jobs:
+  result-spider:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: ossutil64
+        run: |
+          ls
+          wget http://gosspublic.alicdn.com/ossutil/1.6.18/ossutil64  
+          chmod 755 ossutil64
+          ./ossutil64 config -e ${{ secrets.ENDPOINT }} -i ${{ secrets.ACCESSKEYID }} -k ${{ secrets.ACCESSKEYSECRET }}  -L CH
+      - name: cptooss
+        run: |
+          ./ossutil64 cp -r result oss://gindex -f                    
