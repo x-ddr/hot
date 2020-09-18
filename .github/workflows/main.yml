@@ -10,6 +10,9 @@ jobs:
   result-spider:
     runs-on: ubuntu-latest
     steps:
+      - run: |
+          cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+          date
       - name: Checkout
         uses: actions/checkout@v2
       - name: 'Set up Python'
